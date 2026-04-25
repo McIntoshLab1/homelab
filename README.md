@@ -14,7 +14,7 @@ Private cloud infrastructure running on UGREEN NAS, built for learning enterpris
 - Networking: Tailscale (zero trust)
 - Monitoring: Grafana + Uptime Kuma
 - Media: Jellyfin
-- DNS: Pi-hole
+- DNS: Pi-hole + Cloud Fare
 
 ## Architecture
 [ DIAGRAM COMING SOON] 
@@ -22,14 +22,17 @@ Private cloud infrastructure running on UGREEN NAS, built for learning enterpris
 ## Services
 | Service | Purpose | Status |
 |---------|---------|--------|
-|  Promox | Hypervisor | Not Started |
-| Tailscale | Zero trust vpn | Not Started |
-| Jellyfin | Media server | Not Started |
-| Pi-hole | Network DNS/Adblock | Not started |
-| Kubernetes: K3s | Container orchestration | Not Started |
-| Grafana | Monitoring dashboard | Not Started |
+|  Promox | Hypervisor | Planned |
+| Tailscale | Zero trust vpn | Planned |
+| Jellyfin | Media server | Planned |
+| Nginx Proxy Manager | Reverse proxy + SSL | Planned |
+| Pi-hole | Internal DNS + Ad blocking | Planned |
+| Cloudflare | External DNS + Domain | Planned |
+| Kubernetes: K3s | Container orchestration | Planned |
+| Grafana | Monitoring dashboard | Planned |
 
 ## Case Studies
 - [Promox Setup](docs/proxmox.md)
 - [Tailscale Zero Trust](docs/tailscale.md)
 - [Jellyfin Media Server](docs/jellyfin.md)
+  
