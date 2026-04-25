@@ -10,7 +10,7 @@ Private cloud infrastructure running on UGREEN NAS, built for learning enterpris
 
 ## Stack
 - Hypervisor: Proxmox VE
-- Containers: Docker + K3s
+- Containers: Docker + kubernetes: K3s
 - Networking: Tailscale (zero trust)
 - Monitoring: Grafana + Uptime Kuma
 - Media: Jellyfin
@@ -26,7 +26,7 @@ Private cloud infrastructure running on UGREEN NAS, built for learning enterpris
 | Tailscale | Zero trust vpn | Not Started |
 | Jellyfin | Media server | Not Started |
 | Pi-hole | Network DNS/Adblock | Not started |
-| K3s  | Container orchestration | Not Started |
+| Kubernetes: K3s | Container orchestration | Not Started |
 | Grafana | Monitoring dashboard | Not Started |
 
 ## Case Studies
