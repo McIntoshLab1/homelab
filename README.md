@@ -1,5 +1,17 @@
 # Homelab Infrastructure
 
+## ⚠️ Security Notice
+
+This repository contains **sanitized documentation and example configurations** of my homelab environment. 
+
+- No real credentials, API keys, or secrets are included.
+- All domains, IP addresses, and identifiers are redacted or replaced with placeholders.
+- Configuration files are provided as examples only.
+
+This project is intended to demonstrate **architecture, security practices, and system design**, not expose a live environment.
+
+---
+
 ## Overview 
 Self-hosted infrastructure environment designed to simulate enterprise systems
 
