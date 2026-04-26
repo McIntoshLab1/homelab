@@ -12,9 +12,9 @@ with placeholder values.
 - Domain names
 
 ## Current Approach
-.env file          → local only, never pushed
-.env.example       → pushed, placeholders only
-.gitignore         → prevents accidental commits
+.env file = local only, never pushed
+.env.example = pushed, placeholders only
+.gitignore = prevents accidental commits
 
 ## Secret Rotation Policy
 - Rotate all passwords every 90 days
