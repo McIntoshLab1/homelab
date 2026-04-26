@@ -12,9 +12,9 @@ required to function.
 
 ## Network Access Control
 Tailscale ACLs
-Admin devices = full access all services
-Mobile devices = limited service access
-Guest devices = no access
+- Admin devices = full access all services
+- Mobile devices = limited service access
+- Guest devices = no access
 
 ## Enterprise Equivalent
 | Homelab | Enterprise |
