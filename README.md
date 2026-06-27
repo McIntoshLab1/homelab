@@ -1,4 +1,6 @@
-# Homelab Infrastructure
+# Tosh Systems — Enterprise Homelab Infrastructure
+
+A personal enterprise infrastructure lab using Proxmox, Cloudflare, Docker, Tailscale, Pi-hole, monitoring, and automation to simulate a small business IT environment.
 
 >## ⚠️ **Security Notice**
 > This repository contains sanitized documentation 
@@ -15,7 +17,10 @@
 ---
 
 ## Overview 
- Self-hosted infrastructure environment designed to simulate enterprise systems
+
+This repository documents the infrastructure supporting a fictional organization called Tosh Systems.
+
+The objective is to replicate enterprise IT environments using Microsoft technologies, virtualization, networking, automation, and cloud services.
  
 ## Hardware
 - UGREEN DXP4800 Plus (Intel Pentium Gold 8505, 8GB DDR5)
