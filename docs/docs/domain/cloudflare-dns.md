@@ -1,4 +1,4 @@
-# Cloudflare DNS Design — Tosh Systems
+# Cloudflare DNS Design for Tosh Systems
 
 Domain: toshsystems.com
 Registrar: Cloudflare
