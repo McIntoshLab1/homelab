@@ -1,1 +1,1 @@
-
+Prevents sensitive files (.env, passwords, real configs) and unnecessary clutter (logs, temp files) from ever being pushed to this public repo, even if they exist locally on my machine.
