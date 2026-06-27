@@ -54,6 +54,7 @@ The objective is to replicate enterprise IT environments using Microsoft technol
 | Nginx Proxy Manager | Reverse proxy + SSL | Planned |
 | Pi-hole | Internal DNS + Ad blocking | Planned |
 | Cloudflare | External DNS + Domain | Planned |
+| Docker |  Container runtime  | Planned |
 | Grafana | Monitoring dashboard | Planned |
 | Uptime Kuma | Service uptime monitoring | Planned |
 
