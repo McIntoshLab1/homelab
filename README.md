@@ -1,6 +1,12 @@
 # Tosh Systems — Enterprise Homelab Infrastructure
 
-A personal enterprise infrastructure lab using Proxmox, Cloudflare, Docker, Tailscale, Pi-hole, monitoring, and automation to simulate a small business IT environment.
+This repository documents the infrastructure supporting a fictional 
+organization called Tosh Systems.
+
+The objective is to replicate enterprise IT environments using Microsoft 
+365 cloud services, virtualization, containerization, networking, 
+automation, and security — built and documented as if supporting a 
+real organization.
 
 >## ⚠️ **Security Notice**
 > This repository contains sanitized documentation 
@@ -29,7 +35,8 @@ The objective is to replicate enterprise IT environments using Microsoft technol
 
 ## Stack
 - Hypervisor: Proxmox VE
-- Containers: Docker + K3s (lightweight Kubernetes in planning)
+- Identity & Cloud: Microsoft 365 / Entra ID, Intune (planned)
+- Containers: Docker + Docker Compose
 - Networking: Tailscale (secure remote access)
 - Monitoring: Grafana + Uptime Kuma
 - Media Server: Jellyfin
@@ -48,6 +55,9 @@ The objective is to replicate enterprise IT environments using Microsoft technol
 ## Services
 | Service | Purpose | Status |
 |---------|---------|--------|
+| Microsoft Entra ID | Cloud identity + access | Planned |
+| Microsoft Intune | Endpoint management | Planned |
+| Exchange Online | Email | Planned |
 | Proxmox VE | Hypervisor | Planned |
 | Tailscale | Zero trust vpn | Planned |
 | Jellyfin | Media server | Planned |
@@ -61,6 +71,7 @@ The objective is to replicate enterprise IT environments using Microsoft technol
 ## Security Approach
 | Layer | Implementation |
 |-------|---------------|
+Identity | Entra ID + Conditional Access + MFA (planned)
 | Network | Tailscale zero trust mesh |
 | Proxy | Nginx Proxy Manager access lists |
 | Application | Per service authentication |
