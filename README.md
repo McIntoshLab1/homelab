@@ -1,6 +1,6 @@
- ### Tosh Systems — Enterprise Homelab Infrastructure
+ ## Tosh Systems — Enterprise Homelab Infrastructure
 
-## Overview 
+# Overview 
 This repository documents the infrastructure supporting a fictional 
 organization called Tosh Systems.
 
