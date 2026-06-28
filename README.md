@@ -1,5 +1,6 @@
 # Tosh Systems — Enterprise Homelab Infrastructure
 
+## Overview 
 This repository documents the infrastructure supporting a fictional 
 organization called Tosh Systems.
 
@@ -21,12 +22,6 @@ real organization.
 > a live environment.
 
 ---
-
-## Overview 
-
-This repository documents the infrastructure supporting a fictional organization called Tosh Systems.
-
-The objective is to replicate enterprise IT environments using Microsoft technologies, virtualization, networking, automation, and cloud services.
  
 ## Hardware
 - UGREEN DXP4800 Plus (Intel Pentium Gold 8505, 8GB DDR5)
