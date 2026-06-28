@@ -65,7 +65,8 @@ real organization.
 ## Security Approach
 | Layer | Implementation |
 |-------|---------------|
-Identity | Entra ID + Conditional Access + MFA (planned)
+| Identity | Entra ID + Conditional Access + MFA |
+| Access Gateway | Cloudflare Access (Entra-integrated SSO for self-hosted apps) |
 | Network | Tailscale zero trust mesh |
 | Proxy | Nginx Proxy Manager access lists |
 | Application | Per service authentication |
@@ -75,19 +76,6 @@ Identity | Entra ID + Conditional Access + MFA (planned)
 See [docs/security/](docs/security/) for full details.
 
 ---
-
-  ## Case Studies
-| Study | Description |
-|-------|-------------|
-| [Proxmox Setup](docs/case-studies/proxmox-setup.md) | Hypervisor install + VM architecture |
-| [Tailscale Access](docs/case-studies/tailscale-access.md) | Zero trust remote access implementation |
-| [Reverse Proxy](docs/case-studies/reverse-proxy.md) | Nginx Proxy Manager + SSL setup |
-| [DNS Architecture](docs/case-studies/dns.md) | Pi-hole + Cloudflare split DNS |
-| [Monitoring Stack](docs/case-studies/monitoring.md) | Grafana + Uptime Kuma deployment |
-| [Jellyfin](docs/case-studies/jellyfin.md) | Media server behind reverse proxy |
-| [Authentication](docs/case-studies/authentication.md) | Multi layer auth implementation |
-| [Automation](docs/case-studies/automation.md) | Alerting and script automation |
-| [Backups](docs/case-studies/backups.md) | Proxmox Backup Server setup |
 
 ## Case Studies
 | Study | Description | Status |
