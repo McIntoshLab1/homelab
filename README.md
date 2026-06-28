@@ -88,4 +88,21 @@ See [docs/security/](docs/security/) for full details.
 | [Authentication](docs/case-studies/authentication.md) | Multi layer auth implementation |
 | [Automation](docs/case-studies/automation.md) | Alerting and script automation |
 | [Backups](docs/case-studies/backups.md) | Proxmox Backup Server setup |
+
+## Case Studies
+| Study | Description | Status |
+|-------|-------------|--------|
+| [Entra ID Identity Design](docs/case-studies/entra-id-design.md) | Tenant setup, users, groups, roles, naming conventions | Planned |
+| [Intune Endpoint Management](docs/case-studies/intune-endpoint.md) | Device enrollment, compliance, configuration profiles | Planned |
+| [Conditional Access](docs/case-studies/conditional-access.md) | Zero trust access policies + MFA enforcement | Planned |
+| [Microsoft 365 DNS](docs/case-studies/microsoft-365-dns.md) | Domain verification, Exchange, SPF/DKIM/DMARC via Cloudflare | Planned |
+| [Proxmox Setup](docs/case-studies/proxmox-setup.md) | Hypervisor install + VM architecture | Completed |
+| [Tailscale Access](docs/case-studies/tailscale-access.md) | Zero trust remote access implementation | Ongoing |
+| [Reverse Proxy](docs/case-studies/reverse-proxy.md) | Nginx Proxy Manager + SSL setup | Planned |
+| [DNS Architecture](docs/case-studies/dns.md) | Pi-hole + Cloudflare split DNS | Planned |
+| [Monitoring Stack](docs/case-studies/monitoring.md) | Grafana + Uptime Kuma deployment | Planned |
+| [Jellyfin](docs/case-studies/jellyfin.md) | Media server behind reverse proxy | Planned |
+| [Authentication](docs/case-studies/authentication.md) | Multi layer auth implementation | Planned |
+| [Automation](docs/case-studies/automation.md) | Alerting and script automation | Planned |
+| [Backups](docs/case-studies/backups.md) | Proxmox Backup Server setup | Planned |
   
