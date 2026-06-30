@@ -1,0 +1,13 @@
+SETUP / REFERENCE DOC              CASE STUDY
+(docs/networking/, monitoring/,    (docs/case-studies/)
+ infrastructure/, etc.)
+─────────────────────────          ─────────────────────────
+Status                             Status
+Overview                           Summary
+Purpose                            Purpose
+Why This Choice                    Why These Choices
+Architecture                       Implementation
+Configuration                      Challenges & Troubleshooting
+Access                             Outcome
+Enterprise Equivalent              Skills Demonstrated
+Related                            Enterprise Relevance
