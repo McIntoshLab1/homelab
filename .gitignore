@@ -2,3 +2,13 @@ Prevents sensitive files (.env, passwords, real configs) and unnecessary clutter
 
 # macOS
 .DS_Store
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+
+# Ansible
+inventory.ini
+*.retro
