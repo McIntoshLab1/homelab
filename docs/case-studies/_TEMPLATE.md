@@ -21,7 +21,7 @@ The decisions behind the implementation, why this tool over
 alternatives, why this configuration, why this approach.
 
 
-| Decision | Chosen | Over| Reason|
+| Tool | Decision | Alternative | Reason |
 
 #Implementation
 
