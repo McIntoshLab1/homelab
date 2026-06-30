@@ -1,5 +1,5 @@
-#Case Study: Proxmox VE Installation on UGREEN DXP4800 Plus
-
+Case Study: Proxmox VE Installation on UGREEN DXP4800 Plus
+---
 
 #Status: Completed. Proxmox VE 9.1 running on the Crucial
 P310 NVMe, reachable over the network and Tailscale.
@@ -56,7 +56,7 @@ error -69772 — firmware-level write protection, no physical switch to override
 
 * Switched to a second USB drive and flashed the ISO directly with dd, using the exact filename:
 
-sudo dd if=/Users/$(whoami)/Downloads/proxmox-ve_9.1-1.iso \of=/dev/rdiskN  bs=1m status=progress
+`sudo dd if=/Users/$(whoami)/Downloads/proxmox-ve_9.1-1.iso \of=/dev/rdiskN  bs=1m status=progress`
 
 [Replace rdiskN with your actual USB device number (verify
 with diskutil list).]
@@ -83,7 +83,7 @@ Verifying the flash actually wrote (exact filename, correct
 device) and confirming the vendor's BIOS key saved hours of
 chasing the wrong problem.
 
-
+---
 #Issue 2 — Web UI Unreachable After Install
 
 #Problem
@@ -122,7 +122,7 @@ correct physical port (and remembering zero-based numbering) is
 a fast root cause once you stop assuming the network config is
 wrong.
 
-
+---
 #Issue 3 — Enterprise Repository Warnings
 
 #Problem
@@ -145,7 +145,7 @@ the old .list fix would have silently done nothing. Matching
 the fix to the actual file format in use is the detail that
 matters.
 
-
+---
 #Post-Install
 
 
