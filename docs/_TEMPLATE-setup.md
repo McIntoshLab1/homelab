@@ -20,7 +20,7 @@ network-wide ad blocking for all lab devices").
 Brief rationale for selecting this tool over alternatives.
 One or two sentences, or a small table if there were contenders.
 
-Tool | Decision | Alternative | Reason |
+| Tool | Decision | Alternative | Reason |
 
 #Architecture
 
