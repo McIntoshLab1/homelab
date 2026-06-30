@@ -1,4 +1,4 @@
- # Tosh Systems — Enterprise Homelab Infrastructure
+# Tosh Systems — Enterprise Homelab Infrastructure
  
 This repository documents the infrastructure supporting a fictional 
 organization called Tosh Systems.
@@ -29,11 +29,12 @@ real organization.
 
 ## Stack
 - Hypervisor: Proxmox VE
-- Identity & Cloud: Microsoft 365 / Entra ID, Intune (planned)
+- Identity & Cloud: Microsoft 365 / Entra ID, Intune, Exchange Online (planned)
+- IaC: Terraform (bpg/proxmox) + Ansible
 - Containers: Docker + Docker Compose
 - Networking: Tailscale (secure remote access)
-- Monitoring: Grafana + Uptime Kuma
-- Media Server: Jellyfin
+- Monitoring: Grafana + Prometheus + Uptime Kuma
+- Documentation: BookStack (internal wiki)
 - Web Access: Nginx Proxy Manager (reverse proxy + SSL)
 - DNS: Pi-hole (internal DNS) & Cloudflare (external DNS + domain)
 
@@ -44,7 +45,7 @@ real organization.
 > Diagrams are redacted to remove sensitive 
 > network details. See docs/architecture/ for 
 > full documentation.
-> 
+>
 
 ## Services
 | Service | Purpose | Status |
@@ -58,7 +59,7 @@ real organization.
 | Nginx Proxy Manager | Reverse proxy + SSL | Planned |
 | Pi-hole | Internal DNS + Ad blocking | Planned |
 | Cloudflare | External DNS + Domain | Planned |
-| Docker |  Container runtime  | Planned |
+| Docker | Container runtime  | Planned |
 | Grafana | Monitoring dashboard | Planned |
 | Uptime Kuma | Service uptime monitoring | Planned |
 
@@ -66,7 +67,7 @@ real organization.
 | Layer | Implementation |
 |-------|---------------|
 | Identity | Entra ID + Conditional Access + MFA |
-| Access Gateway | Cloudflare Access (Entra-integrated SSO for self-hosted apps) |
+| Access Gateway | Cloudflare Access — Phase 2 (planned) |
 | Network | Tailscale zero trust mesh |
 | Proxy | Nginx Proxy Manager access lists |
 | Application | Per service authentication |
@@ -80,6 +81,8 @@ See [docs/security/](docs/security/) for full details.
 ## Case Studies
 | Study | Description | Status |
 |-------|-------------|--------|
+| [Terraform Provisioning](docs/case-studies/terraform-provisioning.md) | VM provisioning via Proxmox API (bpg/proxmox) | Planned |
+| [Ansible Configuration](docs/case-studies/ansible-configuration.md) | Automated VM config (Docker, Tailscale, users) | Planned |
 | [Entra ID Identity Design](docs/case-studies/entra-id-design.md) | Tenant setup, users, groups, roles, naming conventions | Planned |
 | [Intune Endpoint Management](docs/case-studies/intune-endpoint.md) | Device enrollment, compliance, configuration profiles | Planned |
 | [Conditional Access](docs/case-studies/conditional-access.md) | Zero trust access policies + MFA enforcement | Planned |
@@ -88,8 +91,8 @@ See [docs/security/](docs/security/) for full details.
 | [Tailscale Access](docs/case-studies/tailscale-access.md) | Zero trust remote access implementation | Ongoing |
 | [Reverse Proxy](docs/case-studies/reverse-proxy.md) | Nginx Proxy Manager + SSL setup | Planned |
 | [DNS Architecture](docs/case-studies/dns.md) | Pi-hole + Cloudflare split DNS | Planned |
-| [Monitoring Stack](docs/case-studies/monitoring.md) | Grafana + Uptime Kuma deployment | Planned |
-| [Jellyfin](docs/case-studies/bookstack.md) |  infrastructure own internal wiki | Planned |
+| [Monitoring Stack](docs/case-studies/monitoring.md) | Grafana +  Prometheus + Uptime Kuma deployment | Planned |
+| [BookStack](docs/case-studies/bookstack.md) | Internal documentation platform behind reverse proxy | Planned |
 | [Authentication](docs/case-studies/authentication.md) | Multi layer auth implementation | Planned |
 | [Automation](docs/case-studies/automation.md) | Alerting and script automation | Planned |
 | [Backups](docs/case-studies/backups.md) | Proxmox Backup Server setup | Planned |
