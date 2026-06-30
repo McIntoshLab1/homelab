@@ -54,7 +54,7 @@ real organization.
 | Exchange Online | Email | Planned |
 | Proxmox VE | Hypervisor | Planned |
 | Tailscale | Zero trust vpn | Planned |
-| Jellyfin | Media server | Planned |
+| BookStack | Internal documentation (wiki) | Planned |
 | Nginx Proxy Manager | Reverse proxy + SSL | Planned |
 | Pi-hole | Internal DNS + Ad blocking | Planned |
 | Cloudflare | External DNS + Domain | Planned |
@@ -89,7 +89,7 @@ See [docs/security/](docs/security/) for full details.
 | [Reverse Proxy](docs/case-studies/reverse-proxy.md) | Nginx Proxy Manager + SSL setup | Planned |
 | [DNS Architecture](docs/case-studies/dns.md) | Pi-hole + Cloudflare split DNS | Planned |
 | [Monitoring Stack](docs/case-studies/monitoring.md) | Grafana + Uptime Kuma deployment | Planned |
-| [Jellyfin](docs/case-studies/jellyfin.md) | Media server behind reverse proxy | Planned |
+| [Jellyfin](docs/case-studies/bookstack.md) |  infrastructure own internal wiki | Planned |
 | [Authentication](docs/case-studies/authentication.md) | Multi layer auth implementation | Planned |
 | [Automation](docs/case-studies/automation.md) | Alerting and script automation | Planned |
 | [Backups](docs/case-studies/backups.md) | Proxmox Backup Server setup | Planned |
