@@ -1,8 +1,8 @@
 Case Study: Proxmox VE Installation on UGREEN DXP4800 Plus
 ---
 
-**Status**: Completed. Proxmox VE 9.1 running on the Crucial
-P310 NVMe, reachable over the network and Tailscale.
+<h1> Status**: Completed. Proxmox VE 9.1 running on the Crucial
+P310 NVMe, reachable over the network and Tailscale.</h1>
 
 
 
