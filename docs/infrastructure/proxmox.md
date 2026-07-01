@@ -1,21 +1,22 @@
 <h1> Case Study: Proxmox VE Installation on UGREEN DXP4800 Plus </h1>
+
+
+<h3>  Proxmox VE 9.1 running on the Crucial
+P310 NVMe, reachable over the network and Tailscale.
+Status: Complete
+</h3>
+
 ---
 
-<h2> Status: Completed. Proxmox VE 9.1 running on the Crucial
-P310 NVMe, reachable over the network and Tailscale.</h2>
-
-
-
-<h2>Objective</h2>
+<h3>Objective</h3>
 
 Install Proxmox VE as the hypervisor foundation for the Tosh
 Systems lab on a UGREEN DXP4800 Plus, using a Crucial P310 500GB
 NVMe as the boot/OS drive while leaving the HDD bays free for
-future storage. Establish remote management before moving on to
+future storage. I will also establish remote management before moving on to
 containers and services.
 
-<h2>Environment</h2>
-
+<h3>Environment</h3>
 
 * Host: UGREEN DXP4800 Plus (Intel Pentium Gold 8505, 8GB DDR5)
 * Boot drive: Crucial P310 500GB NVMe (M.2 slot)
@@ -24,7 +25,7 @@ containers and services.
 * Installer: USB flashed from macOS
 
 
-<h2>Outcome</h2>
+<h3>Outcome</h3>
 
 Proxmox VE 9.1 installed to the P310, web UI reachable at
 https://<static-ip>:8006, node joined to Tailscale for remote
@@ -32,16 +33,17 @@ management. Three significant issues were diagnosed and resolved
 during the build which are documented below.
 
 
+---
 <h2>Issue 1 — USB Installer Would Not Boot</h2>
 
-<h2>Problem**</h2>
+<h3>Problem</h3>
 
 The DXP4800 Plus refused to boot from the USB installer. The
 BIOS could not be reached with the usual keys, and the USB never
 appeared in any boot menu — the system booted straight into the
 stock UGREEN OS (GRUB).
 
-<h2>Diagnosis</h2>
+<h3>Diagnosis</h3>
 
 * Standard BIOS keys (DEL, F2, F11, ESC) did nothing
 * Inspected drives from the GRUB command line (ls) — USB
@@ -51,7 +53,7 @@ error -69772 — firmware-level write protection, no physical switch to override
 * balenaEtcher and UNetbootin both failed (UNetbootin additionally blocked by macOS Gatekeeper)
 
 
-<h2>Resolution</h2>
+<h3>Resolution</h3>
 
 
 * Switched to a second USB drive and flashed the ISO directly with dd, using the exact filename:
@@ -68,14 +70,14 @@ DEL or F2 alone
 in the AMI/Aptio BIOS, saved with F10
 
 
-<h2>Root Cause</h2>
+<h3>Root Cause</h3>
 
 Two compounding issues: the first USB had firmware write
 protection with no override, and the DXP4800's BIOS uses a
 non-standard Ctrl+F2 shortcut. The initial dd flash also
 failed because the filename didn't match exactly.
 
-<h2>Takeaway</h2>
+<h3>Takeaway</h3>
 
 Hardware-specific BIOS shortcuts and firmware-level USB write
 protection are easy to misread as "the installer is broken."
@@ -86,12 +88,12 @@ chasing the wrong problem.
 ---
 <h2>Issue 2 — Web UI Unreachable After Install</h2>
 
-<h2>Problem</h2>
+<h3>Problem</h3>
 
 Install completed, but https://<static-ip>:8006 would not load,
 and the Proxmox node was not visible on the UniFi switch.
 
-<h2>Diagnosis</h2>
+<h3>Diagnosis</h3>
 
 
 * Confirmed the management Mac was on the same 192.168.1.x network
@@ -101,20 +103,20 @@ and the Proxmox node was not visible on the UniFi switch.
 as the management interface
 
 
-<h2>Root Cause</h2>
+<h3>Root Cause</h3>
 
 The ethernet cable was plugged into LAN 2, which maps to
 nic1 (igc) — but nic0 (Atlantic) was selected during install.
 Interfaces are zero-indexed (LAN 1 = nic0, LAN 2 = nic1), so
 Proxmox was broadcasting management on a port with no cable in it.
 
-<h2>Resolution</h2>
+<h3>Resolution</h3>
 
 Moved the cable from LAN 2 to LAN 1 to match the nic0
 interface chosen at install. The web UI became reachable
 immediately and the node appeared on the switch.
 
-<h2>Takeaway</h2>
+<h3>Takeaway</h3>
 
 A working install can still be unreachable purely from a
 physical/interface mismatch. Mapping the selected NIC to the
@@ -125,20 +127,20 @@ wrong.
 ---
 <h2>Issue 3 — Enterprise Repository Warnings</h2>
 
-<h2>Problem</h2>
+<h3>Problem</h3>
 
 Proxmox shipped with the enterprise (paid-subscription) APT
 repositories enabled and producing update errors on a no-subscription
 homelab node.
 
-<h2>Resolution</h2>
+<h3>Resolution</h3>
 
 *Disabled the enterprise repos. On Proxmox VE 9.x these use the
 newer .sources (deb822) format rather than the old .list
 files, so the change was applied against the .sources file
 rather than commenting out a .list line.
 
-<h2>Takeaway</h2>
+<h3>Takeaway</h3>
 
 Repo handling changed format between Proxmox versions; applying
 the old .list fix would have silently done nothing. Matching
@@ -146,7 +148,7 @@ the fix to the actual file format in use is the detail that
 matters.
 
 ---
-<h2>Post-Install</h2>
+<h3>Post-Install</h3>
 
 
 * Tailscale installed on the Proxmox node, joining it to the
@@ -155,7 +157,7 @@ matters.
 * First LXC container (Pi-hole) created on Ubuntu 24.04 with a static IP as the next build step.
 
 
-<h2>Skills Demonstrated</h2>
+<h3>Skills Demonstrated</h3>
 
 * Hypervisor installation
 * Low-level USB imaging (dd) and boot troubleshooting
@@ -165,7 +167,7 @@ matters.
 * Remote management via zero-trust networking (Tailscale)
 
 
-<h2>Enterprise Relevance</h2>
+<h3>Enterprise Relevance</h3>
 
 Creating a hypervistor , diagnosing boot and
 network-interface issues, and establishing secure remote
