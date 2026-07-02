@@ -1,6 +1,6 @@
 # Network Topology
 
-**Status:** Physical LAN complete · Tailscale overlay active
+**Status:** Physical LAN complete and Tailscale overlay active
 
 ## Overview
 The network has two planes: a physical LAN behind the home router
