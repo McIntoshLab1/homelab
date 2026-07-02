@@ -21,7 +21,7 @@ Traffic flows: devices → UniFi Switch Lite 8 PoE → Verizon router
 → internet. The Proxmox host connects to the switch on the port
 that maps to its selected management NIC.
 
-### NIC-to-port mapping (important)
+### NIC to port mapping
 Interfaces are **zero-indexed**: `LAN 1 = nic0`, `LAN 2 = nic1`.
 Proxmox management was configured on **nic0 (Atlantic)**, so the
 cable must be in **LAN 1**. A mismatch here (cable in LAN 2 while
