@@ -11,4 +11,4 @@ terraform.tfvars
 
 # Ansible
 inventory.ini
-*.retro
+*.retry 
