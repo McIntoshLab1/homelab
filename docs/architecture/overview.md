@@ -26,13 +26,13 @@ the one below it.
 | Documentation | BookStack (internal wiki) | Planned |
 
 ## How It Fits Together
-Proxmox is the foundation — every VM and container runs on it, and
+Proxmox is the foundation and every VM and container runs on it, and
 it is the target Terraform provisions against. Ansible then
 configures those VMs (Docker, Tailscale, users). Networking wraps
-the whole thing: Tailscale provides zero-trust remote access,
+the whole thing, Tailscale provides zero-trust remote access,
 Pi-hole resolves internal names and blocks ads, and Cloudflare
 handles public DNS and the domain. On top of the container layer
-sit the services — monitoring (Grafana/Prometheus/Uptime Kuma),
+sit the services: monitoring (Grafana/Prometheus/Uptime Kuma),
 documentation (BookStack), and web access via Nginx Proxy Manager.
 Identity is the parallel cloud track: Microsoft 365 / Entra ID for
 users, groups, and access, with Intune and Exchange to follow.
@@ -40,7 +40,7 @@ users, groups, and access, with Intune and Exchange to follow.
 ## Two Tracks
 The build runs on two largely independent tracks:
 
-- **On-prem / homelab**:  Proxmox → Terraform → Ansible → Docker →
+- **On-prem / homelab**:  Proxmox > Terraform > Ansible > Docker >
   services, wrapped in Tailscale + Pi-hole + Cloudflare networking.
 - **Cloud identity**: Microsoft 365 / Entra ID → Intune →
   Conditional Access → Exchange, wired to `toshsystems.com` via
