@@ -171,7 +171,4 @@ matters.
 
 <h3>Enterprise Relevance</h3>
 
-Creating a hypervistor , diagnosing boot and
-network-interface issues, and establishing secure remote
-management mirror the foundational tasks of provisioning and
-trouble shooting enterprise environments.
+Deploying a hypervisor, diagnosing boot and network-interface issues, and establishing secure remote management to mirror the tasks of provisioning and troubleshooting enterprise environments.
