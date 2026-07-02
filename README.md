@@ -39,8 +39,25 @@ real organization.
 - DNS: Pi-hole (internal DNS) & Cloudflare (external DNS + domain)
 
 ## Architecture
-![Architecture Diagram](diagrams/architecture.png)
-![Network Diagram](diagrams/network-diagram.png)
+
+
+*System architecture - layers and services*
+
+<a href="diagrams/architecture.png">
+  <img src="diagrams/architecture.png" alt="Architecture Diagram" width="600">
+</a>
+
+<br><br>
+
+*Network topology - physical devices and Tailscale overlay*
+
+<a href="diagrams/network-diagram.png">
+  <img src="diagrams/network-diagram.png" alt="Network Diagram" width="600">
+</a>
+
+
+
+
 
 > Diagrams are redacted to remove sensitive 
 > network details. See docs/architecture/ for 
