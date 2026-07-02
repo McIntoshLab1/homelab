@@ -10,6 +10,6 @@ history, providing the data source that Grafana visualizes.
 ## Enterprise Equivalent
 | Homelab | Enterprise |
 |---------|-----------|
-| Prometheus | Datado |
+| Prometheus | Datadog |
 
 
