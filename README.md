@@ -70,12 +70,12 @@ real organization.
 | Microsoft Entra ID | Cloud identity + access | Planned |
 | Microsoft Intune | Endpoint management | Planned |
 | Exchange Online | Email | Planned |
-| Proxmox VE | Hypervisor | Planned |
-| Tailscale | Zero trust vpn | Planned |
+| Proxmox VE | Hypervisor | Completed |
+| Tailscale | Zero trust vpn | Active|
 | BookStack | Internal documentation (wiki) | Planned |
-| Nginx Proxy Manager | Reverse proxy + SSL | Planned |
-| Pi-hole | Internal DNS + Ad blocking | Planned |
-| Cloudflare | External DNS + Domain | Planned |
+| Nginx Proxy Manager | Reverse proxy + SSL | Phase 2 |
+| Pi-hole | Internal DNS + Ad blocking | In Progress |
+| Cloudflare | External DNS + Domain | Completed |
 | Docker | Container runtime  | Planned |
 | Grafana | Monitoring dashboard | Planned |
 | Uptime Kuma | Service uptime monitoring | Planned |
