@@ -83,7 +83,7 @@ real organization.
 ## Security Approach
 | Layer | Implementation |
 |-------|---------------|
-| Identity | Entra ID + Conditional Access + MFA |
+| Identity | Entra ID + Conditional Access + MFA (planned)| 
 | Access Gateway | Cloudflare Access — Phase 2 (planned) |
 | Network | Tailscale zero trust mesh |
 | Proxy | Nginx Proxy Manager access lists |
