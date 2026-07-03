@@ -22,6 +22,7 @@ time.
 | Remote access | Tailscale mesh | Traditional VPN server | No VPN server to host, patch, or expose |
 | Deployment | Host-level install | Docker sidecar | Whole node on mesh covers all services; sidecar only needed for per-container identity |
 
+
 Tailscale is built on WireGuard and uses a coordination server
 only for key exchange — traffic flows peer-to-peer between
 devices where possible.
