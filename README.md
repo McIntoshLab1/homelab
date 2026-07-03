@@ -32,7 +32,7 @@ real organization.
 - Identity & Cloud: Microsoft 365 / Entra ID, Intune, Exchange Online (planned)
 - IaC: Terraform (bpg/proxmox) + Ansible
 - Containers: Docker + Docker Compose
-- Networking: Tailscale (secure remote access)
+- Networking: Tailscale (mesh VPN + subnet routing, PHASE 2: exit node + Tailscale SSH )
 - Monitoring: Grafana + Prometheus + Uptime Kuma
 - Documentation: BookStack (internal wiki)
 - Web Access: Nginx Proxy Manager (reverse proxy + SSL)
