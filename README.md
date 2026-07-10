@@ -71,10 +71,10 @@ real organization.
 | Microsoft Intune | Endpoint management | Planned |
 | Exchange Online | Email | Planned |
 | Proxmox VE | Hypervisor | Completed |
-| Tailscale | Zero trust vpn | Active|
+| Tailscale | Zero trust vpn | Completed |
 | BookStack | Internal documentation (wiki) | Planned |
 | Nginx Proxy Manager | Reverse proxy + SSL | Phase 2 |
-| Pi-hole | Internal DNS + Ad blocking | In Progress |
+| Pi-hole | Internal DNS + Ad blocking | Active |
 | Cloudflare | External DNS + Domain | Completed |
 | Docker | Container runtime  | Planned |
 | Grafana | Monitoring dashboard | Planned |
@@ -105,7 +105,7 @@ See [docs/security/](docs/security/) for full details.
 | [Conditional Access](docs/case-studies/conditional-access.md) | Zero trust access policies + MFA enforcement | Planned |
 | [Microsoft 365 DNS](docs/case-studies/microsoft-365-dns.md) | Domain verification, Exchange, SPF/DKIM/DMARC via Cloudflare | Planned |
 | [Proxmox Setup](docs/case-studies/proxmox-setup.md) | Hypervisor install + VM architecture | Completed |
-| [Tailscale Access](docs/case-studies/tailscale-access.md) | Zero trust remote access implementation | Ongoing |
+| [Tailscale Access](docs/case-studies/tailscale-access.md) | Zero trust remote access implementation | Completed |
 | [Reverse Proxy](docs/case-studies/reverse-proxy.md) | Nginx Proxy Manager + SSL setup | Planned |
 | [DNS Architecture](docs/case-studies/dns.md) | Pi-hole + Cloudflare split DNS | Planned |
 | [Monitoring Stack](docs/case-studies/monitoring.md) | Grafana +  Prometheus + Uptime Kuma deployment | Planned |
