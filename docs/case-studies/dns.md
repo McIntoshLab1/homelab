@@ -131,10 +131,9 @@ returned to automatic.
 
 The result is DNS that travels with the device. At home, queries
 take a short hop to a container on the same LAN; at the second
-house or any other network, the same resolver answers over the
+location or any other network, the same resolver answers over the
 tailnet with nothing to reconfigure. If the node is ever
-unreachable, toggling Tailscale off falls back to DHCP DNS — a
-built-in escape hatch.
+unreachable, toggling Tailscale off falls back to DHCP DNS.
 
 ## Outcome
 Pi-hole now serves DNS for the tailnet (currently the mac), blocking roughly 78,000
