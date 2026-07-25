@@ -1,4 +1,4 @@
-# Case Study: Internal DNS + Ad Blocking with Pi-hole
+# Case Study: Internal DNS & Ad Blocking with Pi-hole
 
 > **Status:** Completed
 
@@ -145,7 +145,7 @@ phones, IoT devices) by pointing the router's DHCP DNS at
 Pi-hole is the planned next step and is currently deferred until the resolver
 has proven stable enough for the whole network to depend on.
 
-## Design Note — Single Point of Failure
+## Design Note: Single Point of Failure
 Making Pi-hole the tailnet's only nameserver carries a
 trade-off: if Pi-hole or the node goes down, every device on
 the tailnet loses DNS with it.
