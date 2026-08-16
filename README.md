@@ -5,20 +5,16 @@ organization called Tosh Systems.
 
 The objective is to replicate enterprise IT environments using Microsoft 
 365 cloud services, virtualization, containerization, networking, 
-automation, and security — built and documented as if supporting a 
+automation, and security built and documented as if supporting a 
 real organization.
 
->## ⚠️ **Security Notice**
-> This repository contains sanitized documentation 
-> and example configurations of my homelab environment.
-> - No real credentials, API keys, or secrets are included
-> - All domains, IP addresses, and identifiers are 
->   redacted or replaced with placeholders
-> - Configuration files are provided as examples only
->
-> This project is intended to demonstrate architecture, 
-> security practices, and system design, not expose 
-> a live environment.
+## ⚠️ **Security Notice**
+ This repository contains sanitized documentation 
+ and example configurations of my homelab environment to 
+ prevent the exposure of the live environment.
+ - No real credentials, API keys, or secrets are included
+ - All domains, IP addresses, and identifiers are redacted or replaced with placeholders
+ - Configuration files are provided as examples only
 
 ---
  
