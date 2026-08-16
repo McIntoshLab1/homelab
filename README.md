@@ -77,15 +77,15 @@ real organization.
 | Uptime Kuma | Service uptime monitoring | Planned |
 
 ## Security Approach
-| Layer | Implementation |
-|-------|---------------|
-| Identity | Entra ID + Conditional Access + MFA (planned)| 
-| Access Gateway | Cloudflare Access — Phase 2 (planned) |
-| Network | Tailscale zero trust mesh |
-| Proxy | Nginx Proxy Manager access lists |
-| Application | Per service authentication |
-| Secrets | .env files, never committed |
-| DNS | Pi-hole internal, Cloudflare external |
+Layer -> Implementation
+
+- Identity -> Entra ID + Conditional Access + MFA (planned)
+- Access Gateway -> Cloudflare Access — Phase 2 (planned) 
+- Network -> Tailscale zero trust mesh 
+- Proxy -> Nginx Proxy Manager access lists 
+- Application -> Per service authentication 
+- Secrets -> .env files, never committed 
+- DNS -> Pi-hole internal, Cloudflare external 
 
 See [docs/security/](docs/security/) for full details.
 
