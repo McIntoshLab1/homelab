@@ -1,4 +1,4 @@
-# Tosh Systems — Enterprise Homelab Infrastructure
+# Tosh Systems - Enterprise Homelab Infrastructure
  
 This repository documents the infrastructure supporting a fictional 
 organization called Tosh Systems.
@@ -8,7 +8,7 @@ The objective is to replicate enterprise IT environments using Microsoft
 automation, and security built and documented as if supporting a 
 real organization.
 
-## ⚠️ **Security Notice**
+##  **Security Notice**
  This repository contains sanitized documentation 
  and example configurations of my homelab environment to 
  prevent the exposure of the live environment.
