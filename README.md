@@ -87,7 +87,7 @@ Layer -> Implementation
 - Secrets -> .env files, never committed 
 - DNS -> Pi-hole internal, Cloudflare external 
 
-See [docs/security/](docs/security/) for full details.
+[docs/security/](docs/security/) is planned to be used for full details.
 
 ---
 
