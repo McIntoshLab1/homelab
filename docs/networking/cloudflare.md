@@ -21,18 +21,18 @@ LAN.
 ## Design Decision
 | Tool/Function | Decision | Alternative | Reason |
 |------|----------|-------------|--------|
-| External DNS | Cloudflare | Registrar default DNS | Fast global anycast DNS, free tier, granular record control |
+| External DNS | Cloudflare | Registrar default DNS | Fast global anycast DNS, free tier, record control |
 | Access gateway (roadmap) | Cloudflare Access / Tunnel | Port-forwarding | Publishes services with zero open inbound ports |
 
 ## Architecture
 Cloudflare sits at the public edge. It is the authoritative
 nameserver for `toshsystems.com` and the point where the public
 domain meets the Microsoft 365 tenant. Internal LAN resolution
-never touches Cloudflare, that is Pi-hole's job - so the two DNS
+never touches Cloudflare, that is Pi-hole's job so the two DNS
 systems stay cleanly separated by scope (public vs internal).
 
-Public queries → Cloudflare (authoritative zone)
-Internal queries → Pi-hole (LAN resolver)
+Public queries -> Cloudflare (authoritative zone)
+Internal queries -> Pi-hole (LAN resolver)
 
 ## Configuration
 | Setting | Value |
