@@ -12,26 +12,25 @@ environment.
 
 #Purpose
 
-What it provides to the rest of the environment (e.g. "internal DNS resolution and
-network-wide ad blocking for all lab devices").
+What the service provides to the rest of the environment.
 
-#Why This Choice
+#Design Decision
 
 Brief rationale for selecting this tool over alternatives.
-One or two sentences, or a small table if there were contenders.
+One or two sentences, or a small table if there were contenders:
 
-| Tool | Decision | Alternative | Reason |
+| Tool/Function | Decision | Alternative | Reason |
 
 #Architecture
 
-Where this sits in the stack and how traffic/data flows through
-it. Diagram is possible.
+Where this tool sits in the stack and how traffic/data flows through
+it. Diagram if possible.
 
 
 
 #Configuration
 
-The key settings, in concrete terms. Ports, IPs (redacted),
+The key settings for Ports, IPs (redacted),
 volumes, environment variables, important flags.
 
 
@@ -42,7 +41,7 @@ Tailscale only" or "behind Nginx reverse proxy + SSL").
 
 #Enterprise Equivalent
 
-
+Similar tools in a business environment. 
 
 #Related
 
