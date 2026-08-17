@@ -18,7 +18,7 @@ It is the external half of the lab's split DNS: Cloudflare answers
 public queries, while Pi-hole handles internal resolution on the
 LAN.
 
-## Why This Choice
+## Design Decision
 | Tool/Function | Decision | Alternative | Reason |
 |------|----------|-------------|--------|
 | External DNS | Cloudflare | Registrar default DNS | Fast global anycast DNS, free tier, granular record control |
