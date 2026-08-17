@@ -45,7 +45,7 @@ Internal queries → Pi-hole (LAN resolver)
 | Cloudflare Tunnel | Phase 2 — public publishing (planned) |
 
 The Cloudflare Tunnel token is stored only in the local `.env`
-(`CLOUDFLARE_TUNNEL_TOKEN`) and is never committed — see
+(`CLOUDFLARE_TUNNEL_TOKEN`) and is never committed. It would be stored in:
 [secrets management](../security/secrets-management.md).
 
 ## Access
