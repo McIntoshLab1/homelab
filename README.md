@@ -63,7 +63,7 @@ real organization.
 ## Services
 | Service | Purpose | Status |
 |---------|---------|--------|
-| Microsoft Entra ID | Cloud identity + access | Planned |
+| Microsoft Entra ID | Cloud identity + access | In Progress|
 | Microsoft Intune | Endpoint management | Planned |
 | Exchange Online | Email | Planned |
 | Proxmox VE | Hypervisor | Completed |
