@@ -1,10 +1,10 @@
 # Storage
 
-**Status:** Boot/OS drive in service · HDD bays reserved (planned)
+**Status:** Boot/OS drive in service with HDD bays reserved (planned)
 
 ## Overview
-Storage in the lab is split: a fast NVMe drive runs
-the hypervisor and its workloads, while the UGREEN DXP4800 Plus's
+The storage in the lab is split. Currently the  NVMe drive runs
+the hypervisor and its workloads while the UGREEN DXP4800 Plus's
 four HDD bays are kept free for a future bulk-storage and
 redundancy. This keeps the OS fast and isolated from data
 storage.
@@ -15,7 +15,7 @@ storage.
 | Boot / OS | Crucial P310 500GB NVMe (M.2) | Runs Proxmox VE 9.1 and all VMs/containers |
 | Bulk storage | 4× HDD bays | **Empty — reserved for future storage + redundancy** |
 
-## Why This Choice
+## Design Decision
 | Decision | Alternative | Reason |
 |----------|-------------|--------|
 | NVMe boot drive | Install OS onto an HDD bay | Keeps the OS fast and separate; leaves all 4 bays free |
