@@ -99,7 +99,7 @@ See [docs/security/](docs/security/) for full details.
 | [Entra ID Identity Design](docs/case-studies/entra-id-design.md) | Tenant setup, users, groups, roles, naming conventions | Planned |
 | [Intune Endpoint Management](docs/case-studies/intune-endpoint.md) | Device enrollment, compliance, configuration profiles | Planned |
 | [Conditional Access](docs/case-studies/conditional-access.md) | Zero trust access policies + MFA enforcement | Planned |
-| [Microsoft 365 DNS](docs/case-studies/microsoft-365-dns.md) | Domain verification, Exchange, SPF/DKIM/DMARC via Cloudflare | Planned |
+| [Microsoft 365 DNS](docs/case-studies/microsoft-365-dns.md) | Domain verification, Exchange, SPF/DKIM/DMARC via Cloudflare | In Progress |
 | [Proxmox Setup](docs/case-studies/proxmox-setup.md) | Hypervisor install + VM architecture | Completed |
 | [Tailscale Access](docs/case-studies/tailscale-access.md) | Zero trust remote access implementation | Completed |
 | [Reverse Proxy](docs/case-studies/reverse-proxy.md) | Nginx Proxy Manager + SSL setup | Planned |
