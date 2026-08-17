@@ -48,7 +48,7 @@ stock UGREEN OS (GRUB).
 <h3>Diagnosis</h3>
 
 * Standard BIOS keys (DEL, F2, F11, ESC) did nothing
-* Inspected drives from the GRUB command line (ls) — USB
+* Inspected drives from the GRUB command line (ls) but the USB
 partitions were unreadable. 
 * First, the USB (SanDisk Ultra Slider 64GB) failed to reformat with
 error -69772 — firmware-level write protection, no physical switch to override 
