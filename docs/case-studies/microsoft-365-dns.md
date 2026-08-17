@@ -1,5 +1,5 @@
 
-# Case Study: Integrating `toshsystems.com` with Microsoft 365
+# Case Study: Integrating toshsystems.com with Microsoft 365
 
 Status: In Progress
 
@@ -70,7 +70,7 @@ Challenges & Troubleshooting
 
 After both DKIM CNAME records were published, Microsoft continued to report that the records could not be found. Instead of deleting or recreating them, public DNS was checked directly with:
 
-dig selector1._domainkey.toshsystems.com CNAME +short
-dig selector2._domainkey.toshsystems.com CNAME +short
+`dig selector1._domainkey.toshsystems.com CNAME +short`
+`dig selector2._domainkey.toshsystems.com CNAME +short`
 
 Both queries returned the expected Microsoft destinations, confirming that the selectors existed, were publicly resolvable, were not being proxied, and were pointing to the correct CNAME targets. Since the DNS configuration was already correct, the issue was isolated to a mismatch between what public DNS was returning and what Microsoft's DKIM validator was recognizing. The Cloudflare records were therefore left unchanged, with the remaining step being to retry DKIM activation after Microsoft's validation process catches up.
