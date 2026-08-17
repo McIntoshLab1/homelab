@@ -25,7 +25,7 @@ obvious at the beginning was that this resolver would also need
 to keep working when a device left the house, and that
 requirement ended up reshaping the design.
 
-## Why These Choices
+## Design Decision
 | Tool/Function | Decision | Alternative | Reason |
 |----------|--------|------|--------|
 | Ad blocking | Pi-hole | Browser extensions | Covers every device including those that can't run extensions |
