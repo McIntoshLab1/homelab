@@ -15,7 +15,7 @@ web interface. Proxmox is the base that Terraform provisions
 against and that all services (Pi-hole, monitoring, Docker hosts)
 ultimately run on.
 
-## Why This Choice
+## Design Decision
 | Tool/Function | Decision | Alternative | Reason |
 |----------|--------|------|--------|
 | Hypervisor | Proxmox VE | VMware ESXi | ESXi free tier killed by Broadcom in 2024 |
