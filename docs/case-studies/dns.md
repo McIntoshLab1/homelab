@@ -54,10 +54,10 @@ at a second location proved otherwise.
 ### Package installation hung inside the container
 The first problem appeared before Pi-hole was even involved:
 `apt update` inside the container hung indefinitely, with no
-error and no progress — the container appeared to have no
+error and no progress, the container appeared to have no
 internet access at all.
 
-Two pings isolated the failure. `ping 1.1.1.1` — a raw IP
+Two pings isolated the failure. `ping 1.1.1.1` , a raw IP
 requiring no name lookup, succeeded. While `ping google.com`
 returned "Temporary failure in name resolution." Together,
 those results showed the network itself was functional and only
@@ -106,13 +106,13 @@ completely offline: no pages loaded and nothing resolved.
 The same layered diagnostic settled it again. `ping 1.1.1.1`
 succeeded, confirming connectivity was intact and DNS was the
 failing layer. The cause became clear on inspection: the Mac's
-DNS had been pointed at Pi-hole's **LAN IP** — an address that
+DNS had been pointed at Pi-hole's **LAN IP** , an address that
 only exists on the home network. From any other location, every
 lookup timed out against an unreachable server, making the
 entire internet appear down.
 
 Restoring access was straightforward: removing the Pi-hole
-entry from the Mac's DNS settings (System Settings → Wi-Fi →
+entry from the Mac's DNS settings (System Settings -> Wi-Fi ->
 DNS) and letting it fall back to the network's default DNS
 brought the internet back immediately.
 
@@ -130,7 +130,7 @@ Pi-hole's 100.x address was added as the global nameserver with
 returned to automatic.
 
 The result is DNS that travels with the device. At home, queries
-take a short hop to a container on the same LAN; at the second
+take a short hop to a container on the same LAN but at the second
 location or any other network, the same resolver answers over the
 tailnet with nothing to reconfigure. If the node is ever
 unreachable, toggling Tailscale off falls back to DHCP DNS.
