@@ -1,7 +1,7 @@
-#[Service / Component Name]
+#Service / Component Name
 
 
-#Status: [Planned | In Progress | Completed]
+#Status: Planned -> In Progress -> Completed
 
 
 
