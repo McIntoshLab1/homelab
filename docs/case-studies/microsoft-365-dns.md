@@ -76,5 +76,6 @@ After both DKIM CNAME records were published, Microsoft continued to report that
 Both queries returned the expected Microsoft destinations, confirming that the selectors existed, were publicly resolvable, were not being proxied, and were pointing to the correct CNAME targets. Since the DNS configuration was already correct, the issue was isolated to a mismatch between what public DNS was returning and what Microsoft's DKIM validator was recognizing. The Cloudflare records were therefore left unchanged, with the remaining step being to retry DKIM activation after Microsoft's validation process catches up.
 
 ###DOC IN PROGRESS
+<img src="../../diagrams/m365-dns-records.png" alt="" width="600">
 
-<img src="../../diagrams/newemail.png" alt="First email received at toshsystems.com" width="600">
+
