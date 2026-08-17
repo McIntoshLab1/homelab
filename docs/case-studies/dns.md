@@ -17,8 +17,8 @@ works from any location.
 ## Purpose
 Every device on the network needed DNS resolution, and ad
 blocking had to extend beyond browsers for devices that 
-can't run a browser extension. The answer had to live at the network
-level, where a single resolver covers everything. The rollout is staged: 
+can't run a browser extension. The solution was at the network
+level, where a single resolver covers everything. The rollout is currently
 client devices first, with router-level DNS for the rest of the LAN planned 
 once the resolver has proven stable. What wasn't
 obvious at the beginning was that this resolver would also need
