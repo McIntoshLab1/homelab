@@ -1,7 +1,10 @@
-Entra Id
+Case Study: Entra ID Identity Design
 
-Status: Planned
+Status: In Progress
 
-Cloud identity and access via Microsoft 365 / Entra ID.
+Summary
 
-This document is a placeholder and will be filled in as the work progresses.
+This phase of the Microsoft 365 build focused on establishing the Entra ID identity structure before adding users, groups, and additional services. The tenant was created as toshsystems.onmicrosoft.com, a consistent naming convention was chosen for user accounts, and the founding Global Administrator was secured with multi-factor authentication before any other configuration work continued.
+
+
+## Work In Progress
