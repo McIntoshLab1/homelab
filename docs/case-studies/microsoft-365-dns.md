@@ -75,7 +75,21 @@ After both DKIM CNAME records were published, Microsoft continued to report that
 
 Both queries returned the expected Microsoft destinations, confirming that the selectors existed, were publicly resolvable, were not being proxied, and were pointing to the correct CNAME targets. Since the DNS configuration was already correct, the issue was isolated to a mismatch between what public DNS was returning and what Microsoft's DKIM validator was recognizing. The Cloudflare records were therefore left unchanged, with the remaining step being to retry DKIM activation after Microsoft's validation process catches up.
 
-###DOC IN PROGRESS
+
 <img src="../../diagrams/m365-dns-records.png" alt="" width="600">
+
+## Outcome
+
+The environment now has toshsystems.com verified and connected to Microsoft 365, with the primary administrator using michael.mcintosh@toshsystems.com while the break-glass administrator remains on the native onmicrosoft.com namespace. Exchange Online MX routing is active, SPF is published with a hard-fail policy, and autodiscover is configured. Both DKIM CNAME records have been published and confirmed through public DNS, although Microsoft-side DKIM activation is still pending. DMARC is planned as the next email-authentication control.
+
+## Skills Demonstrated
+
+This project involved Microsoft 365 custom-domain onboarding, Cloudflare DNS administration, Microsoft Entra ID user principal name management, Exchange Online mail routing, and the configuration of SPF and DKIM. It also required direct DNS record validation with dig, break-glass account planning, and troubleshooting across both Cloudflare and Microsoft 365 to distinguish a DNS configuration issue from a service-side validation delay.
+
+## Enterprise Relevance
+
+Custom-domain onboarding is a common Microsoft 365 administrative task when an organization introduces Microsoft 365, adds another domain, or changes how an existing domain is used. The Exchange Online records configured in this project are the same record types used in business environments for mail routing, sender authorization, client discovery, and DKIM authentication.
+
+The account design also addresses emergency access by keeping the break-glass administrator on the tenant's native onmicrosoft.com namespace, reducing its dependency on the custom domain. The DKIM issue reflects a common cross-platform troubleshooting scenario in which two management systems report different states. Checking the records directly with dig confirmed that they were already publicly available, allowing the remaining issue to be narrowed to Microsoft's validation process rather than the Cloudflare DNS configuration.
 
 
