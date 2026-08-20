@@ -47,6 +47,7 @@ As a result, Cloudflare remained responsible for the DNS zone throughout the pro
 
 Microsoft generated a TXT record containing a unique ownership value, such as MS=msXXXXXXXX, which was added at the root of toshsystems.com in Cloudflare. Within several minutes, Microsoft detected the record and verified the domain. The TXT record is only used to prove control of the DNS zone and does not participate in normal Exchange Online mail flow after verification.
 
+<img src="../../diagrams/m365-dns-records.png" alt="Exchange Online DNS records provided by the Microsoft 365 setup wizard" width="600">
 
 ### Administrator Identity
 
@@ -63,7 +64,7 @@ The Exchange Online records were entered manually in Cloudflare.
 | CNAME  | `autodiscover` | `autodiscover.outlook.com`                       | Allows supported clients to locate Microsoft mail settings |
 
 The MX record uses priority 0, while SPF terminates with -all because Exchange Online is currently the only authorized sender for the domain. The autodiscover record was also created as DNS only in Cloudflare rather than being proxied.
-
+<img src="../../diagrams/m365-dns-records.png" alt="Exchange Online DNS records provided by the Microsoft 365 setup wizard" width="600">
 DKIM
 
 DKIM configuration was started through Microsoft Defender, which generated the two selectors selector1._domainkey and selector2._domainkey. Each selector was added to Cloudflare as a DNS-only CNAME. Microsoft uses two selectors so DKIM signing keys can be rotated without interrupting verification. The generated targets used Microsoft's newer DKIM namespace containing q-v1.dkim.mail.microsoft rather than the older onmicrosoft.com target format shown in many earlier setup examples.
@@ -97,6 +98,9 @@ The finished mail configuration includes:
 -aggregate DMARC reporting sent to the administrator mailbox
 
 After sending three test emails through Gmail, I confirmed that SPF, DKIM, and DMARC all pass when evaluated by an external receiving system.
+
+
+<img src="../../diagrams/m365-first-email.png" alt="First email received at toshsystems.com in an external mailbox" width="600">
 
 <img src="../../diagrams/m365-auth-headers.png" alt="Gmail message headers showing SPF, DKIM, and DMARC all passing" width="600">
 
