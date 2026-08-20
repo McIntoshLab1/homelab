@@ -78,7 +78,7 @@ After both DKIM CNAME records were published, Microsoft continued to report that
 Both queries returned the expected Microsoft destinations, confirming that the selectors existed, were publicly resolvable, were not being proxied, and were pointing to the correct CNAME targets. Since the DNS configuration was already correct, the issue was isolated to a mismatch between what public DNS was returning and what Microsoft's DKIM validator was recognizing. The Cloudflare records were therefore left unchanged, with the remaining step being to retry DKIM activation after Microsoft's validation process catches up.
 
 
-<img src="../../diagrams/m365-dns-records.png" alt="" width="600">
+
 
 ### Outcome
 
@@ -97,6 +97,8 @@ The finished mail configuration includes:
 -aggregate DMARC reporting sent to the administrator mailbox
 
 After sending three test emails through Gmail, I confirmed that SPF, DKIM, and DMARC all pass when evaluated by an external receiving system.
+
+<img src="../../diagrams/m365-auth-headers.png" alt="Gmail message headers showing SPF, DKIM, and DMARC all passing" width="600">
 
 ## Skills Demonstrated
 
