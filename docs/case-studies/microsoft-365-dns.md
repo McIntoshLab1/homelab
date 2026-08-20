@@ -5,39 +5,41 @@ Status: In Progress
 
 ## Summary
 
-The lab domain was already managed through Cloudflare, while Microsoft 365 was still using the tenant's default `toshsystems.onmicrosoft.com` namespace. This project connected the existing domain to Microsoft 365 without moving DNS management away from Cloudflare. The work covered domain ownership verification, administrator identity changes, Exchange Online mail routing, SPF, autodiscover, and DKIM.
+The lab domain was already managed through Cloudflare, while Microsoft 365 was still using the tenant's default `toshsystems.onmicrosoft.com` namespace. This project connected the existing domain to Microsoft 365 without moving DNS management away from Cloudflare. The work included verifying ownership of the domain, changing the primary administrator's UPN, configuring Exchange Online mail routing, and publishing the DNS records needed for SPF, autodiscover, DKIM, and DMARC.
 
 A DKIM validation issue also required checking the published records independently. Microsoft reported that the required CNAMEs could not be found even though both records were already resolving correctly from public DNS.
+
+Two parts of the setup also required troubleshooting outside the Microsoft 365 portals. Microsoft initially reported that the DKIM records could not be found even though both CNAMEs were already resolving publicly, and Gmail later showed DMARC as failing shortly after the policy was published. In both cases, direct DNS queries confirmed that the records were correct, so I left the configuration alone and allowed the external validation systems to catch up.
+
+By the end of the project, toshsystems.com was fully connected to Microsoft 365 and SPF, DKIM, and DMARC were all passing when tested through Gmail.
 
 ## Purpose
 
 The goal was to use `toshsystems.com` as the primary domain for the Microsoft 365 environment while keeping Cloudflare as the authoritative DNS provider.
+By using the custom domain it gives the tenant a more realistic identity and mail configuration than relying on the default onmicrosoft.com namespace. It also created an opportunity to configure the same DNS records that support Exchange Online in a business environment.
 
-The integration was intended to provide:
+The finished setup needed to provide:
+-Microsoft 365 sign-ins using the custom domain
+-email addresses ending in @toshsystems.com
+-inbound mail delivery through Exchange Online
+-SPF authorization for outbound mail
+-DKIM signing
+-a DMARC enforcement policy and reporting address
+-Outlook autodiscovery
+-an emergency administrator that does not depend on the custom domain
 
-* a custom Microsoft 365 sign-in domain
-* email addresses using `@toshsystems.com`
-* Exchange Online inbound mail routing
-* SPF sender authorization
-* DKIM message authentication
-* Outlook autodiscovery
-* an emergency administrator independent of the custom domain
-* a foundation for adding DMARC
+As a result, Cloudflare remained responsible for the DNS zone throughout the project, so the Microsoft 365 records were added manually instead of giving Microsoft control over the zone.
 
 ## Design Decision
 
-Several parts of the implementation had more than one valid approach.
+| Tool/Function              | Decision                           | Alternative               | Reason                                                                                                                                                     |
+| -------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DNS management             | Manual configuration in Cloudflare | Microsoft Domain Connect  | Kept DNS changes under direct control and avoided giving Microsoft permission to modify the Cloudflare zone                                                |
+| SPF policy                 | `-all`                             | `~all`                    | Exchange Online is currently the only authorized sender for `toshsystems.com`, so mail from sources outside the published SPF policy should fail the check |
+| DMARC policy               | `p=quarantine`                     | `p=none` or `p=reject`    | Quarantine provides enforcement while leaving room to review DMARC reports before moving to a stricter reject policy                                       |
+| Break-glass account        | Remain on `onmicrosoft.com`        | Move to `toshsystems.com` | Keeps emergency access independent of the custom domain if DNS or domain configuration causes a sign-in problem                                            |
+| Mail-related CNAME records | Cloudflare DNS only                | Cloudflare proxy          | Microsoft service records need to resolve directly to Microsoft endpoints rather than passing through the Cloudflare proxy                                 |
 
-| Area                | Decision                        | Alternative               | Reason                                                                                        |
-| ------------------- | ------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------- |
-| DNS management      | Manual Cloudflare configuration | Microsoft Domain Connect  | Keeps DNS changes under direct control and avoids granting Microsoft write access to the zone |
-| SPF policy          | `-all`                          | `~all`                    | Exchange Online is currently the only system authorized to send mail for the domain           |
-| Break-glass account | Remain on `onmicrosoft.com`     | Move to `toshsystems.com` | Keeps emergency access independent of the custom domain                                       |
-| Mail-related CNAMEs | Cloudflare DNS only             | Cloudflare proxy          | Microsoft service records need to resolve directly to Microsoft endpoints                     |
-
-The break-glass account was intentionally excluded when the other administrator identity was moved to the custom domain.
-
-If `toshsystems.com` or its DNS configuration experiences a problem, the emergency administrator can still sign in using Microsoft's native tenant namespace.
 
 ## Implementation
 
@@ -66,7 +68,7 @@ DKIM
 
 DKIM configuration was started through Microsoft Defender, which generated the two selectors selector1._domainkey and selector2._domainkey. Each selector was added to Cloudflare as a DNS-only CNAME. Microsoft uses two selectors so DKIM signing keys can be rotated without interrupting verification. The generated targets used Microsoft's newer DKIM namespace containing q-v1.dkim.mail.microsoft rather than the older onmicrosoft.com target format shown in many earlier setup examples.
 
-Challenges & Troubleshooting
+### Challenges & Troubleshooting
 
 After both DKIM CNAME records were published, Microsoft continued to report that the records could not be found. Instead of deleting or recreating them, public DNS was checked directly with:
 
@@ -78,18 +80,36 @@ Both queries returned the expected Microsoft destinations, confirming that the s
 
 <img src="../../diagrams/m365-dns-records.png" alt="" width="600">
 
-## Outcome
+### Outcome
 
-The environment now has toshsystems.com verified and connected to Microsoft 365, with the primary administrator using michael.mcintosh@toshsystems.com while the break-glass administrator remains on the native onmicrosoft.com namespace. Exchange Online MX routing is active, SPF is published with a hard-fail policy, and autodiscover is configured. Both DKIM CNAME records have been published and confirmed through public DNS, although Microsoft-side DKIM activation is still pending. DMARC is planned as the next email-authentication control.
+toshsystems.com is now fully connected to the Microsoft 365 tenant while Cloudflare remains responsible for DNS.
+
+The primary administrator uses michael.mcintosh@toshsystems.com, while the emergency administrator remains on the tenant's native onmicrosoft.com namespace. Exchange Online is handling inbound mail, and test messages were delivered in under five seconds.
+
+The finished mail configuration includes:
+
+-an MX record with priority 0 routing mail to Exchange Online
+-SPF using a hard-fail -all policy
+-Outlook autodiscover
+-two published DKIM selectors
+-DKIM signing enabled and showing as Valid in Microsoft Defender
+-DMARC using p=quarantine
+-aggregate DMARC reporting sent to the administrator mailbox
+
+After sending three test emails through Gmail, I confirmed that SPF, DKIM, and DMARC all pass when evaluated by an external receiving system.
 
 ## Skills Demonstrated
 
-This project involved Microsoft 365 custom-domain onboarding, Cloudflare DNS administration, Microsoft Entra ID user principal name management, Exchange Online mail routing, and the configuration of SPF and DKIM. It also required direct DNS record validation with dig, break-glass account planning, and troubleshooting across both Cloudflare and Microsoft 365 to distinguish a DNS configuration issue from a service-side validation delay.
+This project gave me hands-on experience connecting a custom domain to Microsoft 365 while keeping DNS hosted with a separate provider. The work involved Cloudflare DNS administration, Microsoft 365 domain verification, Entra ID UPN changes, Exchange Online mail routing, and the configuration of SPF, DKIM, DMARC, and autodiscover.
+
+The troubleshooting portion was just as important as publishing the records. I used dig to check DNS independently of the Microsoft and Gmail interfaces, which made it possible to tell the difference between an incorrect DNS record and a validation or caching delay.
+
+Other areas covered during the project included break-glass account planning, DNS-only CNAME configuration, email authentication testing, and working across Cloudflare, Microsoft 365, Microsoft Defender, Exchange Online, and Gmail.
 
 ## Enterprise Relevance
 
-Custom-domain onboarding is a common Microsoft 365 administrative task when an organization introduces Microsoft 365, adds another domain, or changes how an existing domain is used. The Exchange Online records configured in this project are the same record types used in business environments for mail routing, sender authorization, client discovery, and DKIM authentication.
+Connecting a custom domain is a normal part of deploying or expanding Microsoft 365 in a business environment. Organizations may need to add Microsoft 365 to an existing DNS zone, introduce an additional domain, or change how an existing domain is used for authentication and email. Additionally, the same record types configured here are used in production environments. MX controls where inbound mail is delivered, SPF identifies approved sending systems, DKIM provides a cryptographic signature for outbound messages, DMARC adds policy and reporting on top of SPF and DKIM, and autodiscover helps supported clients locate Exchange Online services.
 
-The account design also addresses emergency access by keeping the break-glass administrator on the tenant's native onmicrosoft.com namespace, reducing its dependency on the custom domain. The DKIM issue reflects a common cross-platform troubleshooting scenario in which two management systems report different states. Checking the records directly with dig confirmed that they were already publicly available, allowing the remaining issue to be narrowed to Microsoft's validation process rather than the Cloudflare DNS configuration.
+The administrator setup is also relevant because an emergency account on the Microsoft-provided onmicrosoft.com namespace gives administrators another path into the tenant if the organization's custom domain becomes unavailable or is configured incorrectly.
 
-
+The DKIM and DMARC issues were also representative of the type of problem that can occur when several platforms are involved in the same change. Cloudflare, Microsoft, and Gmail did not all report the new DNS state at exactly the same time. Querying public DNS directly made it possible to confirm which side was actually working and avoid changing records that were already configured correctly.
