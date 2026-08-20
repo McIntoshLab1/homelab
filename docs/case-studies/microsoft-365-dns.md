@@ -1,7 +1,7 @@
 
 # Case Study: Integrating toshsystems.com with Microsoft 365
 
-Status: In Progress
+Status: Completed
 
 ## Summary
 
@@ -33,7 +33,7 @@ As a result, Cloudflare remained responsible for the DNS zone throughout the pro
 ## Design Decision
 
 | Tool/Function              | Decision                           | Alternative               | Reason                                                                                                                                                     |
-| -------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | ---------------------------------- | ------------------------- | -----------------------------------------------------------------------------------|
 | DNS management             | Manual configuration in Cloudflare | Microsoft Domain Connect  | Kept DNS changes under direct control and avoided giving Microsoft permission to modify the Cloudflare zone                                                |
 | SPF policy                 | `-all`                             | `~all`                    | Exchange Online is currently the only authorized sender for `toshsystems.com`, so mail from sources outside the published SPF policy should fail the check |
 | DMARC policy               | `p=quarantine`                     | `p=none` or `p=reject`    | Quarantine provides enforcement while leaving room to review DMARC reports before moving to a stricter reject policy                                       |
