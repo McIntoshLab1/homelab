@@ -47,7 +47,7 @@ As a result, Cloudflare remained responsible for the DNS zone throughout the pro
 
 Microsoft generated a TXT record containing a unique ownership value, such as MS=msXXXXXXXX, which was added at the root of toshsystems.com in Cloudflare. Within several minutes, Microsoft detected the record and verified the domain. The TXT record is only used to prove control of the DNS zone and does not participate in normal Exchange Online mail flow after verification.
 
-<img src="../../diagrams/m365-dns-records.png" alt="Exchange Online DNS records provided by the Microsoft 365 setup wizard" width="600">
+
 
 ### Administrator Identity
 
